@@ -12,7 +12,7 @@ for any of your GitHub repositories that you want to track.
 
 ## Setup
 
-## Generate a GitHub access token
+### Generate a GitHub access token
 
 You will need a GitHub access token to use the GitHub API. 
 
@@ -25,7 +25,7 @@ or just go [here](https://github.com/settings/tokens).
 5. After you create the token you will need to copy the token key value. If you ever forget the token you will have to
 regenerate it.
 
-## Create a configuration file for your repository
+### Create a configuration file for your repository
 
 An example configuration file is provided. Make a copy of the example file and edit the three values.
 
@@ -33,7 +33,7 @@ An example configuration file is provided. Make a copy of the example file and e
 * "repo" is the name of the username/organization and repository in the form "username/repository".
 * "access_token" is the token key you created above.
 
-## Run the script to test it
+### Run the script to test it
 
 The Python script accepts the configuration file as the only input. If the specified database does not exist it will
 automatically create it and build the two tables.
@@ -50,7 +50,7 @@ sqlite3 -header -csv repo.db.sqlite3 "select * from clones" > repo.clones.csv
 sqlite3 -header -csv repo.db.sqlite3 "select * from views" > repo.views.csv
 ```
 
-## Gathering statistics on a schedule
+### Gathering statistics on a schedule
 
 The script will add any new daily traffic records to the database whenever it is run. In principle, as long as you run
 the script once every 12 days you should be able to collect daily traffic statistics. I run the script once per day
