@@ -1,0 +1,5 @@
+{
+  "db": "github_stats.sqlite3",
+  "repo": "nfahlgren/github_stats",
+  "access_token": "xxxxxxxxxxxxxxxxxxxx"
+}
