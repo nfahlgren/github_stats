@@ -31,7 +31,7 @@ def options():
         raise IOError("Configuration file {0} does not exist!".format(args.config))
 
     # Read the configuration file
-    config_file = open(args.config, "rU")
+    config_file = open(args.config, "r")
     # Load the JSON configuration data
     config = json.load(config_file)
     config_file.close()
