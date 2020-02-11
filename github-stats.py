@@ -89,8 +89,8 @@ def main():
     args = options()
 
     # Get GitHub repo clone statistics
-    response = requests.get("https://api.github.com/repos/{0}/traffic/clones?access_token={1}".format(args.repo,
-                                                                                                      args.token))
+    response = requests.get("https://api.github.com/repos/{0}/traffic/clones".format(args.repo),
+                            headers={"Authorization": "token {0}".format(args.token)})
     if response.status_code != 200:
         raise IOError("GitHub API call failed. Status code: {0}, Reason: {1}.".format(response.status_code,
                                                                                       response.reason))
@@ -107,8 +107,8 @@ def main():
             args.db.execute("INSERT INTO `clones` VALUES (?, ?, ?)", (clone_stat["timestamp"], clone_stat["count"],
                                                                       clone_stat["uniques"]))
     # Get GitHub repo view statistics
-    response = requests.get("https://api.github.com/repos/{0}/traffic/views?access_token={1}".format(args.repo,
-                                                                                                     args.token))
+    response = requests.get("https://api.github.com/repos/{0}/traffic/views".format(args.repo),
+                            headers={"Authorization": "token {0}".format(args.token)})
     if response.status_code != 200:
         raise IOError("GitHub API call failed. Status code: {0}, Reason: {1}.".format(response.status_code,
                                                                                       response.reason))
